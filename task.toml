@@ -1,0 +1,47 @@
+schema_version = "1.4"
+
+artifacts = ["/app/result.json"]
+
+[task]
+name = "afterquery/latent-changepoint"
+description = "Recover a robust latent-state coefficient changepoint and predictive error from a contaminated longitudinal dataset."
+authors = [{ name = "REPLACE_WITH_YOUR_NAME", email = "REPLACE_WITH_YOUR_EMAIL" }]
+keywords = ["changepoint", "robust-regression", "state-space", "time-series"]
+
+[metadata]
+author_name = "REPLACE_WITH_YOUR_NAME"
+author_email = "REPLACE_WITH_YOUR_EMAIL"
+author_organization = "Independent Researcher"
+author_profile = "REPLACE_WITH_YOUR_PROFILE_URL"
+research_advisor = ""
+referred_by = ""
+conflicts_of_interest = "None"
+domain = "mathematical-sciences"
+field = "statistics"
+subfield = "robust longitudinal inference and latent-state modeling"
+category = "Science"
+subcategory = "Statistics & Machine Learning"
+tags = ["time-series", "changepoint-detection", "robust-statistics", "latent-state-modeling"]
+expert_time_estimate_hours = 6
+relevant_experience = "REPLACE_WITH_YOUR_SPECIFIC_BACKGROUND_IN_STATISTICAL_MODELING_OR_SCIENTIFIC_DATA_ANALYSIS"
+difficulty_explanation = "The data is synthetic but reproducibly seeded. Hidden grading targets come from the independent data-generating process, not the reference solver. The task requires robust longitudinal inference with missing observations, contamination, a latent temporal component, and an unknown coefficient changepoint."
+solution_explanation = "The reference implementation performs robust regression, smooths temporal residual structure, searches candidate changepoints with robust segment fits, and evaluates final-window one-step-ahead prediction error."
+verification_explanation = "A separate offline verifier checks the required artifact and compares all numerical fields with hidden targets calculated independently from the seeded generative parameters. Tolerances permit reasonable numerical variation without accepting guessed or incomplete results."
+
+[verifier]
+timeout_sec = 1800.0
+environment_mode = "separate"
+
+[verifier.environment]
+network_mode = "no-network"
+
+[agent]
+timeout_sec = 9000
+
+[environment]
+build_timeout_sec = 600
+cpus = 1
+memory_mb = 2048
+storage_mb = 10240
+gpus = 0
+network_mode = "public"
